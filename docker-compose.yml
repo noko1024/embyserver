@@ -1,0 +1,22 @@
+version: "3"
+services:
+  emby:
+    image: emby/embyserver
+    container_name: embyserver
+    environment:
+      - VIRTUAL_HOST=emby.main.noko1024.net
+      - LETSENCRYPT_HOST=emby.main.noko1024.net
+      - VIRTUAL_PORT=8096
+    volumes:
+      - ./config:/config # Configuration directory
+      - ./music:/mnt/music
+    networks:
+      - proxy-network
+    ports:
+      - 8096 # HTTP port
+    restart: unless-stopped
+
+networks:
+  default:
+  proxy-network:
+    external: true
