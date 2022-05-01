@@ -12,8 +12,6 @@ services:
       - ./music:/mnt/music
     networks:
       - proxy-network
-    ports:
-      - 8096 # HTTP port
     restart: unless-stopped
 
 networks:
