@@ -10,6 +10,9 @@ services:
     volumes:
       - ./config:/config # Configuration directory
       - ./music:/mnt/music
+      - /home/SHARE/emby:/mnt/emby
+    ports:
+      - 8096
     networks:
       - proxy-network
     restart: unless-stopped
